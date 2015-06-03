@@ -1,0 +1,20 @@
+body {
+	font-family:'Slabo 27px', serif;
+	back:gainsboro;
+}
+
+.titleArea {
+	height:275px;
+	background-image: url("http://mojeh.com/sites/default/files/styles/adaptive_image/adaptive-image/public/lip-liner_0.jpg?itok=8OcW-ekG");
+	background-size:450px;
+}
+
+
+.page-title {
+	color:#660066;
+	text-align:center;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 145px;
+	padding-top: 10px;
+	margin:0px;
+}
