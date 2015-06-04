@@ -1,5 +1,6 @@
 body {
 	font-family: 'Lora', serif;
+	background-color: white;
 }
 
 .page-title {
@@ -8,37 +9,32 @@ body {
 	text-align:center;
 	font-size: 55px;
 	cursor: pointer;
-	color:#2E0854;
+	color:#F6CCDA;
 }
 
-.titleArea {
+.pageBreak1 {
 	padding: 5px 25px 5px 25px;
 	text-align: center;
 	border-bottom: solid black 2px;
-	color: #2E0854;
+	border-color: #FFF0F5;
 }
 
-
-.pic1 {
-	height:300px;
-	background-image: url("images/IMG_3729.JPG");
-	background-size: 200px;
-	background-repeat: no-repeat;
-	float: left;
+.picArea {
+	text-align: center;
 }
 
-.pic2 {
-	height:300px;
-	background-image: url("images/IMG_3732.jpg");
-	background-size: 200px;
-	background-repeat: no-repeat;
-	float: left;
+.pic {
+	position: relative;
+	margin:15px 30px 15px 30px;
+	display:table-cell inline-block;
+	border: solid 1px #FFF0F5;
+	border-radius: 10px;
 }
 
-.pic3 {
-	height:300px;
-	background-image: url("images/IMG_3733.jpg");
-	background-size: 200px;
-	background-repeat: no-repeat;
-	float: left;
+.post {
+	color:#8B475D;
+	border: solid 1px #FFF0F5;
+	margin: 5px 20px 5px 20px;
+	padding: 10px;
+	border-radius: 5px;
 }
