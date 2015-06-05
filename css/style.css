@@ -19,22 +19,35 @@ body {
 	border-color: #FFF0F5;
 }
 
-.picArea {
-	text-align: center;
+.date {
+	margin-top: 15px;
+	font-size: 27px;
+	font-style: bold;
 }
 
-.pic {
-	position: relative;
+.postAreaD1 {
+	clear: both;
+}
+
+.picAreaD1 {
+	width: 50%;
+	float: left;
+}
+
+.picVert {
 	margin:15px 30px 15px 30px;
-	display:table-cell inline-block;
 	border: solid 1px #FFF0F5;
-	border-radius: 10px;
+	clear: left;
+	float: left;
+	height: 10%;
+	width: 10%;
 }
 
-.post {
-	color:#8B475D;
-	border: solid 1px #FFF0F5;
-	margin: 5px 20px 5px 20px;
-	padding: 10px;
-	border-radius: 5px;
+.picD2 {
+	float: right;
+}
+
+p {
+	font-size: 15px;
+	padding: 5px 20px 5px 20px;
 }
