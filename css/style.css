@@ -1,6 +1,9 @@
 body {
 	font-family: 'Lora', serif;
 	background-color: white;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .page-title {
@@ -9,14 +12,15 @@ body {
 	text-align:center;
 	font-size: 55px;
 	cursor: pointer;
-	color:#F6CCDA;
+	color: black;
 }
 
 .pageBreak1 {
 	padding: 5px 25px 5px 25px;
 	text-align: center;
 	border-bottom: solid black 2px;
-	border-color: #FFF0F5;
+	border-color: black;
+	clear: both;
 }
 
 .date {
@@ -25,29 +29,46 @@ body {
 	font-style: bold;
 }
 
-.postAreaD1 {
-	clear: both;
-}
-
-.picAreaD1 {
-	width: 50%;
-	float: left;
-}
-
-.picVert {
-	margin:15px 30px 15px 30px;
-	border: solid 1px #FFF0F5;
-	clear: left;
-	float: left;
-	height: 10%;
-	width: 10%;
-}
-
-.picD2 {
-	float: right;
-}
-
 p {
 	font-size: 15px;
 	padding: 5px 20px 5px 20px;
 }
+
+/*making sure this is set up right*/
+.postArea {
+	background-color: blue;
+}
+
+p {
+	background-color: pink;
+}
+/*end of making sure it's set up right*/
+.picL1 {
+	float: left;
+}
+
+.picR {
+	float: right;
+}
+
+.picContainerC {
+	text-align: center;
+	width: 100%;
+
+}
+
+.picC {
+	display: inline-block;
+	text-align: center;
+	padding: 10px;
+
+}
+
+.picCbr {
+	display: inline-block;
+	text-align: center;
+	padding: 10px;
+	margin-right: 25px;
+
+}
+
