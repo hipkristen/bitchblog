@@ -56,11 +56,20 @@ a {
 
 }
 
+/*.picLContainer {
+	margin-top: 50%;
+}*/
+
+.picLContainer img:first-child {
+	margin-top: 13px;
+}
+
 .picL {
 	float: left;
-	display: inline-block;
-	text-align: left;
+	clear: both;
+	/*text-align: left;*/
 	padding: 10px;
+
 
 }
 
@@ -71,7 +80,6 @@ a {
 .picContainerC {
 	text-align: center;
 	width: 100%;
-
 }
 
 .picC {
