@@ -26,7 +26,7 @@ body {
 .date {
 	margin-top: 15px;
 	font-size: 27px;
-	font-style: bold;
+	font-style: italic;
 }
 
 p {
@@ -34,17 +34,34 @@ p {
 	padding: 5px 20px 5px 20px;
 }
 
-/*making sure this is set up right*/
-.postArea {
-	background-color: blue;
+a {
+	text-decoration: none;
+	color: pink;
+	font-style: bold;
 }
+/*making sure this is set up right*/
+/*.postArea {*/
+	/*background-color: blue;*/
+/*}*/
 
-p {
+/*p {
 	background-color: pink;
 }
-/*end of making sure it's set up right*/
-.picL1 {
+*//*end of making sure it's set up right*/
+
+.picContainer: {
+	text-align: left;
+	width: 50%;
+	display: inline;
+
+}
+
+.picL {
 	float: left;
+	display: inline-block;
+	text-align: left;
+	padding: 10px;
+
 }
 
 .picR {
