@@ -49,18 +49,12 @@ a {
 }
 *//*end of making sure it's set up right*/
 
-.picContainer: {
-	text-align: left;
-	width: 50%;
-	display: inline;
-
-}
 
 /*.picLContainer {
 	margin-top: 50%;
 }*/
 
-.picLContainer img:first-child {
+.picLContainer {
 	margin-top: 13px;
 }
 
@@ -69,8 +63,6 @@ a {
 	clear: both;
 	/*text-align: left;*/
 	padding: 10px;
-
-
 }
 
 .picR {
