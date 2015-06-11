@@ -15,11 +15,55 @@ body {
 	color: black;
 }
 
+.header {
+	top: 0;
+	position: fixed;
+	clear: both;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: white;
+}
+
+
+.pageBreak0 {
+	padding: 5px 25px 5px 25px;
+	text-align: center;
+	border-bottom: solid black 1px;
+	border-color: black;
+	clear: both;
+}
+
+.menu {
+	text-align: center;
+	width: 100%;
+}
+
+
+.menuItem {
+	display: inline;
+	margin: auto;
+}
+
+.menuItem a {
+	text-decoration: none;
+	color:pink;
+	font-size: 30px;
+	padding: 5px;
+	margin: 30px;
+}
+
+
 .pageBreak1 {
 	padding: 5px 25px 5px 25px;
 	text-align: center;
 	border-bottom: solid black 2px;
 	border-color: black;
+	clear: both;
+}
+
+.postArea {
+	margin-top: 165px;
 	clear: both;
 }
 
@@ -34,7 +78,7 @@ p {
 	padding: 5px 20px 5px 20px;
 }
 
-a {
+.inTextLink {
 	text-decoration: none;
 	color: pink;
 	font-style: bold;
@@ -90,9 +134,11 @@ a {
 }
 
 ul {
-	margin-left: 0px;
+	list-style-position: inside;
 }
 
 li {
-	margin-left: 30px;
+	text-indent: 5px;
 }
+
+
