@@ -1,4 +1,16 @@
-body {
+
+/*applies to all pages*/
+
+.header {
+	top: 0;
+	width: 82%;
+	position: fixed;
+	margin-left: 9%;
+	font-family: 'Lora', serif;
+	background-color: white;
+}
+
+.bodyLower {
 	font-family: 'Lora', serif;
 	background-color: white;
 	width: 80%;
@@ -15,17 +27,6 @@ body {
 	color: black;
 }
 
-.header {
-	top: 0;
-	position: fixed;
-	clear: both;
-	width: 80%;
-	margin-left: auto;
-	margin-right: auto;
-	background-color: white;
-}
-
-
 .pageBreak0 {
 	padding: 5px 25px 5px 25px;
 	text-align: center;
@@ -35,21 +36,22 @@ body {
 }
 
 .menu {
-	text-align: center;
-	width: 100%;
+	padding-top: 10px;
+	display: table;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 
 .menuItem {
-	display: inline;
-	margin: auto;
+	display: table-cell;
 }
 
 .menuItem a {
+	display: inline;
 	text-decoration: none;
 	color:pink;
-	font-size: 30px;
-	padding: 5px;
+	font-size: 18px;
 	margin: 30px;
 }
 
@@ -111,6 +113,7 @@ p {
 
 .picR {
 	float: right;
+	padding-left: 5px;
 }
 
 .picContainerC {
@@ -141,4 +144,32 @@ li {
 	text-indent: 5px;
 }
 
+.ulTitle {
+	padding-bottom: 5px;
+	font-size: 20px;
+}
 
+
+
+/*About page specific css*/
+
+.aboutArea {
+	margin-top: 150px;
+	font-family: 'Lora', serif;
+	background-color: white;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.Q::first-letter {
+	font-weight: bold;
+	font-size: 25px;
+	color: purple;
+}
+
+.A::first-letter {
+	font-weight: bold;
+	font-size: 25px;
+	color: purple;
+}
