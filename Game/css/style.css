@@ -1,0 +1,42 @@
+#player {
+	position: relative;
+	top: 0px;
+	left: 50%;
+	height: 35px;
+	width: 35px;
+	background-color: pink;
+	border-radius: 100%;
+
+}
+
+table {
+	margin-right: auto;
+	margin-left: auto;
+	width: 100%;
+}
+
+.one {
+	margin-top: 50px;
+	margin-left: 30px;
+	margin-right: 30px;
+	height: 30px;
+	width: 45px;
+	background-color: black;
+}
+
+.two {
+	margin-top: 50px;
+	margin-left: 30px;
+	margin-right: 30px;
+	height: 30px;
+	width: 45px;
+	background-color: purple;
+}
+
+.three {
+	margin-top: 50px;
+	margin-left: 30px;
+	margin-right: 30px;	height: 30px;
+	width: 45px;
+	background-color: indigo;	
+}

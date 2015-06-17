@@ -7,6 +7,7 @@ var main = function() {
   	 
   // };
 
+
   $('.cost').click(function() {
     
     var thisSection = $(this);
