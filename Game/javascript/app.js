@@ -1,75 +1,117 @@
 var main = function() {
 
 
-    // $(document).keydown(function(key)){
+    // $(document).keydown(function(key){
     //   if(key === 37) {
     //     $('#player').animate({left:"-=10px"},'fast');
     //   }
     // });
     
-
-
+// to move the player
   $(document).keydown(function(key){
     switch(parseInt(key.which,10)){
       case 37:
-        $('#player').animate({left:"-=10px"},'fast');
+        $('#player').animate({left:"-=20px"},30);
         break;
       case 38:
-        $('#player').animate({top:"-=10px"},'fast');
+        $('#player').animate({top:"-=20px"},30);
         break;
       case 39:
-        $('#player').animate({left:"+=10"},'fast');
+        $('#player').animate({left:"+=20"},30);
         break;
       case 40:
-        $('#player').animate({top:"+=10px"},'fast');
+        $('#player').animate({top:"+=20px"},30);
         break;
     }
-  });
+  })
 
-// if(document.getElementByID !== "player") {
-//    var blocker = $(this);
-//    console.log(blocker);
-//  }
 
-    var blocker = $('div');
-    var player = $('#player');
+// to make the divs move Left to Right
 
-      var y1 = player.offset().top;
-      var h1 = player.height();
-      var b1 = y1 + h1;
+  function leftRight(divL,posL) {
+    for(var i = posL; i < 1100; i+=5) {
+      var j = i + "px";
+    divL.animate({left: j}, 100);
+    } for(var i = 1100; i > 100; i-=5) {
+      var j = i + "px";
+    divL.animate({left: j}, 100);
+    } 
+  }
+
+leftRight($('#one1'),100);
+leftRight($('#one3'),600);
+leftRight($('two3'),200);
+leftRight($('two1'),450);
+leftRight($('three3'),900);
+
+// to make the divs move Right to Left
+
+  function rightLeft(divR,posR) {
+    for(var i = posR; i > 100; i-=3) {
+      var j = i + "px";
+    divR.animate({left: j}, 100);
+    } for(var i = 100; i < 1100; i+=3) {
+      var j = i + "px";
+    divR.animate({left: j}, 100);
+    } 
+  }
+
+rightLeft($('#one2'),200);
+rightLeft($('#two2'),350);
+rightLeft($('#three2'),700);
+rightLeft($('#three1'),750);
+
+// to detect a collision using jquery ui
+  function collision(player,blocker) {
       var x1 = player.offset().left;
-      var w1 = player.width();
-      var r1 = x1 + w1;
-      var y2 = blocker.offset().top;
-      var h2 = blocker.height();
-      var b2 = y2 + h2;
-      var x2 = blocker.offset().left;
-      var w2 = blocker.width();
-      var r2 = x2 + w2;
-
-    console.log(y1, h1, "b1 = ", b1, x1, w1, "r1 =", r1, y2, h2,"b2 = ", b2, x2, w2,"r2 = ",r2);
-
-      function collision(player, blocker) {
       var y1 = player.offset().top;
-      var h1 = player.height();
+      var h1 = player.outerHeight(true);
+      var w1 = player.outerWidth(true);
       var b1 = y1 + h1;
-      var x1 = player.offset().left;
-      var w1 = player.width();
       var r1 = x1 + w1;
-      var y2 = blocker.offset().top;
-      var h2 = blocker.height();
-      var b2 = y2 + h2;
       var x2 = blocker.offset().left;
-      var w2 = blocker.width();
+      var y2 = blocker.offset().top;
+      var h2 = blocker.outerHeight(true);
+      var w2 = blocker.outerWidth(true);
+      var b2 = y2 + h2;
       var r2 = x2 + w2;
         
       if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
       return true;
+      
+// to use that collision script to make things happen
 
-      console.log(x1, y1, h1,w1, b1,r1,x2,y2,h2,w2,b2,r2);
+// why doesn't the below line do anything?
+      if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) console.log("false");
+      console.log("true");
     }
 
-      console.log(collision(player,blocker));
+      // why doesn't this alert me when player one and the div noted collide?!
+          var one = collision($('#player'), $('#one1'));
+          console.log(one);    
+          if (one) { 
+            alert("hit");
+          }
+
+       
+        //   if (
+        //     collision($('#player'),$('#one1')) ||
+        //     collision($('#player'),$('#one2')) ||
+        //     collision($('#player'),$('#one3')) ||
+        //     collision($('#player'),$('#two1')) ||
+        //     collision($('#player'),$('#two2')) ||
+        //     collision($('#player'),$('#two3')) ||
+        //     collision($('#player'),$('#three1')) ||
+        //     collision($('#player'),$('#three2')) ||
+        //     collision($('#player'),$('#three3'))
+        //     ) { alert("hit");
+        // }
+
+
+
+window.setInterval(function() {
+    $('#result1').text(collision($('#player'), $('#one1')));
+}, 100);
 
 
 }
