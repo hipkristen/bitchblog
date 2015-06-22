@@ -26,36 +26,53 @@ var main = function() {
   })
 
 
-// to make the divs move Left to Right
+// to make the divs move Left to Right - how can I make the "toCont" part keep continuing?
+
 
   function leftRight(divL,posL) {
+    
     for(var i = posL; i < 1100; i+=5) {
       var j = i + "px";
-    divL.animate({left: j}, 100);
-    } for(var i = 1100; i > 100; i-=5) {
-      var j = i + "px";
-    divL.animate({left: j}, 100);
+      divL.animate({left: j}, 35);
     } 
+    function toCont() {
+      for(var i = 1100; i > 100; i-=5) {
+        var j = i + "px";
+        divL.animate({left: j}, 35);
+      } for(var i = 100; i < 1100; i+=5) {
+        var j = i + "px";
+        divL.animate({left: j}, 35);
+      }
+    }
+    if (i === 1100) {
+      toCont();
+      if (i === 1100) {
+      toCont();
+      } 
+    } 
+    
   }
+
+// call left moving divs from starting positions defined in css
 
 leftRight($('#one1'),100);
 leftRight($('#one3'),600);
-leftRight($('two3'),200);
-leftRight($('two1'),450);
-leftRight($('three3'),900);
+leftRight($('#two3'),200);
+leftRight($('#two1'),450);
+leftRight($('#three3'),900);
 
-// to make the divs move Right to Left
+// to make the divs move Right to Left - same question as above- how do I make this keep going?
 
   function rightLeft(divR,posR) {
-    for(var i = posR; i > 100; i-=3) {
+    for(var i = posR; i > 100; i-=5) {
       var j = i + "px";
-    divR.animate({left: j}, 100);
-    } for(var i = 100; i < 1100; i+=3) {
+    divR.animate({left: j}, 35);
+    } for(var i = 100; i < 1100; i+=5) {
       var j = i + "px";
-    divR.animate({left: j}, 100);
+    divR.animate({left: j}, 35);
     } 
   }
-
+// call right moving divs from starting positions defined in css
 rightLeft($('#one2'),200);
 rightLeft($('#two2'),350);
 rightLeft($('#three2'),700);

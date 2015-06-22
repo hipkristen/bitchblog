@@ -156,7 +156,6 @@ li {
 }
 
 
-
 /*About page specific css*/
 
 .aboutArea {
@@ -179,3 +178,31 @@ li {
 	font-size: 25px;
 	color: purple;
 }
+
+
+/*learning page specific*/
+.learningArea {
+	margin-top: 150px;
+	font-family: 'Lora', serif;
+	background-color: white;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+.myLinkList {
+	font-size: 25px;
+	text-align: center;
+	width: 95%;
+	margin-left: auto;
+	margin-right:auto;
+	list-style-position: outside;
+}
+
+.myLinks {
+	font-size:15px;
+	padding:2px;
+	text-align: left;
+}
+
