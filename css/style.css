@@ -131,16 +131,9 @@ p {
 	display: inline-block;
 	text-align: center;
 	padding: 10px;
-
+	vertical-align: middle;
 }
 
-.picCbr {
-	display: inline-block;
-	text-align: center;
-	padding: 10px;
-	margin-right: 25px;
-
-}
 
 ul {
 	list-style-position: inside;
