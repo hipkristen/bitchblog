@@ -6,7 +6,10 @@ var main = function() {
     //     $('#player').animate({left:"-=10px"},'fast');
     //   }
     // });
-    
+
+
+$('#player').css("left",($(window).width() * 0.5));
+
 // to move the player
   $(document).keydown(function(key){
     switch(parseInt(key.which,10)){
@@ -28,47 +31,61 @@ var main = function() {
 
 // to make the divs move Left to Right - how can I make the "toCont" part keep continuing?
 
-var blocker = function(div,posStart,directionStart,mover) {
+var blocker = function(div,posStart,directionStart,currMover) {
 
     var directionNew = directionStart;
     var posNew = posStart;
-
+    var mover = currMover;
+    // var animSpeed =
     setInterval(function(){
 
       // this needs to go before the switch statement because otherwise the switch direction would just forever be left
-      if(posNew >= $('body').width()) {
+      if(posNew >= $(window).width()) {
         directionNew = "right";
       } else if(posNew <=0) {
          directionNew = "left";
       }      
       // to designate the x-axis position on the page where this will be animated to go
-      switch(directionNew) {
-        case "left":
-          posNew += mover;
-          // console.log(posNew);
-          break;
-        case "right":
-          posNew -= mover;
-          // console.log(posNew);
-          break;
-      }
 
+
+      // to try to speed up or slow down the divs
+      $('#speedUp').click(function(){
+            mover += 0.03;
+          });
+      $('#slowDown').click(function(){
+            if(mover > 1) {
+              mover -= 0.03;
+            }
+          });
+
+        switch(directionNew) {
+          case "left":
+            posNew += mover;
+            console.log(posNew);
+            break;
+          case "right":
+            posNew -= mover;
+            console.log(posNew);
+            break;
+        }
+
+      // to animate the blocker divs
       var posNewPx = posNew + "px";
-      div.animate({left: posNewPx},mover);
+      div.animate({left: posNewPx},35);
 
-      }, 100);
+      }, 50);
 };
 
-new blocker($('#one1'),100,"left",35);
-new blocker($('#one3'),600,"left",35);
-new blocker($('#two3'),200,"left",35);
-new blocker($('#two1'),450,"left",35);
-new blocker($('#three3'),900,"left",35);
+new blocker($('#one1'),100,"left",10);
+new blocker($('#one3'),600,"left",10);
+new blocker($('#two3'),200,"left",10);
+new blocker($('#two1'),450,"left",10);
+new blocker($('#three3'),900,"left",10);
 
-new blocker($('#one2'),200,"right",35);
-new blocker($('#two2'),3500,"right",35);
-new blocker($('#three2'),700,"right",35);
-new blocker($('#three1'),750,"right",35);
+new blocker($('#one2'),200,"right",10);
+new blocker($('#two2'),3500,"right",10);
+new blocker($('#three2'),700,"right",10);
+new blocker($('#three1'),750,"right",10);
 
 
 
@@ -101,8 +118,10 @@ new blocker($('#three1'),750,"right",35);
 
     }
 
+var points = 0;
 
 window.setInterval(function() {
+
 // to detect collision
   if (
       collision($('#player'),$('#one1')) ||
@@ -116,13 +135,39 @@ window.setInterval(function() {
       collision($('#player'),$('#three3'))
       ) { 
 // turn the background red for a flast when a hit happens, then turn it back to white - it's kind of flashy bc of how long each hit is.
+          
           $('body').css("background-color","red");
+          points -= (1/3)*5;
+          // $('#points').text(points);
           setTimeout(function(){
             $('body').css("background-color","white");  
           },50);
         } else {
           $('body').css("background-color","white");
         }
+
+//   if (
+//       collision($('#player'),$('LEFTWALL')) ||
+//       collision($('#player'),$('RIGHTWALL')) ||
+//       collision($('#player'),$('BOTTOMWALL')) ||
+//       collision($('#player'),$('TOPWALL')) ||
+//       ) { 
+// // turn the background red for a flast when a hit happens, then turn it back to white - it's kind of flashy bc of how long each hit is.
+          
+//           $('body').css("background-color","pink");
+//           points += (1/3)*10;
+//           // $('#points').text(points);
+//           setTimeout(function(){
+//             $('body').css("background-color","white");  
+//           },50);
+//         } else {
+//           $('body').css("background-color","white");
+//         }    
+
+
+        totalPoints = Math.round(points);
+        $('#points').text(totalPoints);        
+
 }, 100);
 
 
