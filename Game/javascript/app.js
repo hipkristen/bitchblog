@@ -2,7 +2,7 @@ var main = function() {
 
 
     // $(document).keydown(function(key){
-    //   if(key === 37) {
+    //   if(key.which === 37) {
     //     $('#player').animate({left:"-=10px"},'fast');
     //   }
     // });
@@ -28,55 +28,49 @@ var main = function() {
 
 // to make the divs move Left to Right - how can I make the "toCont" part keep continuing?
 
+var blocker = function(div,posStart,directionStart,mover) {
 
-  function leftRight(divL,posL) {
-    
-    for(var i = posL; i < 1100; i+=5) {
-      var j = i + "px";
-      divL.animate({left: j}, 35);
-    } 
-    function toCont() {
-      for(var i = 1100; i > 100; i-=5) {
-        var j = i + "px";
-        divL.animate({left: j}, 35);
-      } for(var i = 100; i < 1100; i+=5) {
-        var j = i + "px";
-        divL.animate({left: j}, 35);
+    var directionNew = directionStart;
+    var posNew = posStart;
+
+    setInterval(function(){
+
+      // this needs to go before the switch statement because otherwise the switch direction would just forever be left
+      if(posNew >= $('body').width()) {
+        directionNew = "right";
+      } else if(posNew <=0) {
+         directionNew = "left";
+      }      
+      // to designate the x-axis position on the page where this will be animated to go
+      switch(directionNew) {
+        case "left":
+          posNew += mover;
+          // console.log(posNew);
+          break;
+        case "right":
+          posNew -= mover;
+          // console.log(posNew);
+          break;
       }
-    }
-    if (i === 1100) {
-      toCont();
-      if (i === 1100) {
-      toCont();
-      } 
-    } 
-    
-  }
 
-// call left moving divs from starting positions defined in css
+      var posNewPx = posNew + "px";
+      div.animate({left: posNewPx},mover);
 
-leftRight($('#one1'),100);
-leftRight($('#one3'),600);
-leftRight($('#two3'),200);
-leftRight($('#two1'),450);
-leftRight($('#three3'),900);
+      }, 100);
+};
 
-// to make the divs move Right to Left - same question as above- how do I make this keep going?
+new blocker($('#one1'),100,"left",35);
+new blocker($('#one3'),600,"left",35);
+new blocker($('#two3'),200,"left",35);
+new blocker($('#two1'),450,"left",35);
+new blocker($('#three3'),900,"left",35);
 
-  function rightLeft(divR,posR) {
-    for(var i = posR; i > 100; i-=5) {
-      var j = i + "px";
-    divR.animate({left: j}, 35);
-    } for(var i = 100; i < 1100; i+=5) {
-      var j = i + "px";
-    divR.animate({left: j}, 35);
-    } 
-  }
-// call right moving divs from starting positions defined in css
-rightLeft($('#one2'),200);
-rightLeft($('#two2'),350);
-rightLeft($('#three2'),700);
-rightLeft($('#three1'),750);
+new blocker($('#one2'),200,"right",35);
+new blocker($('#two2'),3500,"right",35);
+new blocker($('#three2'),700,"right",35);
+new blocker($('#three1'),750,"right",35);
+
+
 
 // to detect a collision using jquery ui
   function collision(player,blocker) {
@@ -92,43 +86,45 @@ rightLeft($('#three1'),750);
       var w2 = blocker.outerWidth(true);
       var b2 = y2 + h2;
       var r2 = x2 + w2;
-        
-      if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
-      return true;
       
-// to use that collision script to make things happen
+      // if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) {
+      //   console.log("false");
+      // } else {
+      //   console.log("true");
+      // }        
+      
+      if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) {
+        return false;
+      } else {  
+        return true;
+      }
 
-// why doesn't the below line do anything?
-      if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) console.log("false");
-      console.log("true");
     }
-
-      // why doesn't this alert me when player one and the div noted collide?!
-          var one = collision($('#player'), $('#one1'));
-          console.log(one);    
-          if (one) { 
-            alert("hit");
-          }
-
-       
-        //   if (
-        //     collision($('#player'),$('#one1')) ||
-        //     collision($('#player'),$('#one2')) ||
-        //     collision($('#player'),$('#one3')) ||
-        //     collision($('#player'),$('#two1')) ||
-        //     collision($('#player'),$('#two2')) ||
-        //     collision($('#player'),$('#two3')) ||
-        //     collision($('#player'),$('#three1')) ||
-        //     collision($('#player'),$('#three2')) ||
-        //     collision($('#player'),$('#three3'))
-        //     ) { alert("hit");
-        // }
-
 
 
 window.setInterval(function() {
-    $('#result1').text(collision($('#player'), $('#one1')));
+// to detect collision
+  if (
+      collision($('#player'),$('#one1')) ||
+      collision($('#player'),$('#one2')) ||
+      collision($('#player'),$('#one3')) ||
+      collision($('#player'),$('#two1')) ||
+      collision($('#player'),$('#two2')) ||
+      collision($('#player'),$('#two3')) ||
+      collision($('#player'),$('#three1')) ||
+      collision($('#player'),$('#three2')) ||
+      collision($('#player'),$('#three3'))
+      ) { 
+// turn the background red for a flast when a hit happens, then turn it back to white - it's kind of flashy bc of how long each hit is.
+          $('body').css("background-color","red");
+          setTimeout(function(){
+            $('body').css("background-color","white");  
+          },50);
+        } else {
+          $('body').css("background-color","white");
+        }
 }, 100);
+
 
 
 }
