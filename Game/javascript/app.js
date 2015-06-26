@@ -7,8 +7,11 @@ var main = function() {
     //   }
     // });
 
+$('#howToHolder').delay(10000).fadeOut(2000);
 
 $('#player').css("left",($(window).width() * 0.5));
+$('#rightWall').css("left",($(window).width() - 5));
+$('#bottomWall').css("top",($(window).height() - 5));
 
 // to move the player
   $(document).keydown(function(key){
@@ -40,7 +43,7 @@ var blocker = function(div,posStart,directionStart,currMover) {
     setInterval(function(){
 
       // this needs to go before the switch statement because otherwise the switch direction would just forever be left
-      if(posNew >= $(window).width()) {
+      if(posNew >= ($(window).width() - 65)) {
         directionNew = "right";
       } else if(posNew <=0) {
          directionNew = "left";
@@ -50,22 +53,22 @@ var blocker = function(div,posStart,directionStart,currMover) {
 
       // to try to speed up or slow down the divs
       $('#speedUp').click(function(){
-            mover += 0.03;
+            mover += 0.02;
           });
       $('#slowDown').click(function(){
             if(mover > 1) {
-              mover -= 0.03;
+              mover -= 0.01;
             }
           });
 
         switch(directionNew) {
           case "left":
             posNew += mover;
-            console.log(posNew);
+            // console.log(posNew);
             break;
           case "right":
             posNew -= mover;
-            console.log(posNew);
+            // console.log(posNew);
             break;
         }
 
@@ -118,7 +121,9 @@ new blocker($('#three1'),750,"right",10);
 
     }
 
-var points = 0;
+
+
+var points = 50;
 
 window.setInterval(function() {
 
@@ -137,36 +142,37 @@ window.setInterval(function() {
 // turn the background red for a flast when a hit happens, then turn it back to white - it's kind of flashy bc of how long each hit is.
           
           $('body').css("background-color","red");
-          points -= (1/3)*5;
-          // $('#points').text(points);
+            points --;
           setTimeout(function(){
             $('body').css("background-color","white");  
           },50);
-        } else {
-          $('body').css("background-color","white");
-        }
+        } 
 
-//   if (
-//       collision($('#player'),$('LEFTWALL')) ||
-//       collision($('#player'),$('RIGHTWALL')) ||
-//       collision($('#player'),$('BOTTOMWALL')) ||
-//       collision($('#player'),$('TOPWALL')) ||
-//       ) { 
-// // turn the background red for a flast when a hit happens, then turn it back to white - it's kind of flashy bc of how long each hit is.
-          
-//           $('body').css("background-color","pink");
-//           points += (1/3)*10;
-//           // $('#points').text(points);
-//           setTimeout(function(){
-//             $('body').css("background-color","white");  
-//           },50);
-//         } else {
-//           $('body').css("background-color","white");
-//         }    
+  if (
+    collision($('#player'),$('#leftWall')) ||
+    // collision($('#player'),$('#topWall')) ||
+    collision($('#player'),$('#rightWall')) ||
+    collision($('#player'),$('#bottomWall'))
+    ) { 
+        $('body').css("background-color","#F8F8F8");
+          points ++;
+        setTimeout(function(){
+          $('body').css("background-color","white");  
+        },50);
+      } 
 
 
-        totalPoints = Math.round(points);
-        $('#points').text(totalPoints);        
+  totalPoints = Math.round((points / 5) * 5);
+  if(totalPoints > 50){
+    points = 50;
+  } 
+  else if(totalPoints <= 0) {
+      $('body').css("background-color","black");
+      alert("loser.");
+      points = 50;
+  } 
+
+  $('#points').text(totalPoints);
 
 }, 100);
 

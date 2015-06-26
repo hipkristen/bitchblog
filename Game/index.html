@@ -4,39 +4,56 @@
 	<head>
 		<meta charset="utf-8">
 		<title>game play</title>
-		
+		<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
 		<link type ="text/css" rel="stylesheet" href="css/style.css"/>
 	</head>
 
+
 	<body>
-		<button type = "button" id = "speedUp">Speed Up</button>
-		<button type = "button" id = "slowDown">Slow Down</button>
-		<div id = "scoreboard"><p>Points: </p><span id ="points"></span></div>
+		<div id = "howToHolder">
+		<h2 id = "howTo">How to play<h1>
+		<h4 class = "steps">use the arrow keys to move the pink player</h4>
+		<h4 class = "steps">try to avoid the moving blockers as you navigate your way around the screen</h4>
+		<h4 class = "steps">adjust the speed of the blockers using the buttons to make this easier or harder</h4>
+		<h4 class = "steps">if you hit a blocker, 5 points will be deducted from the players life</h4>
+		<h4 class = "steps">if you hit a wall other than the top wall, you'll get 5 points back</h4>
+		</div>		
 
-		<div id = "player"></div>
-		<br/>
-		
-		<br/>
-		<div class = "one" id ="one1"></div>
-		<br/>
-		<div class = "one" id ="two1"></div>
-		<br/>
-		<div class = "one" id ="three1"></div>
-		<br/>
+<!-- 	<div id = "gameHolder"> -->
+		<div id = "topWall"></div>
+		<div id = "leftWall"></div>
+		<div id = "bottomWall"></div>
+		<div id = "rightWall"></div>
+			
+			<button type = "button" id = "speedUp">Speed Up</button>
+			<button type = "button" id = "slowDown">Slow Down</button>
+			<div id = "scoreboard"><p>Life: </p><span id ="points"></span></div>
 
-		<div class = "two" id ="one2"></div>
-		<br/>
-		<div class = "two" id ="two2"></div>
-		<br/>
-		<div class = "two" id ="three2"></div>
-		<br/>
-		
-		<div class = "three" id ="one3"></div>
-		<br/>
-		<div class = "three" id ="two3"></div>
-		<br/>
-		<div class = "three" id ="three3"></div>
-		<br/>
+			<div id = "player"></div>
+			<br/>
+			
+			<br/>
+			<div class = "one" id ="one1"></div>
+			<br/>
+			<div class = "one" id ="two1"></div>
+			<br/>
+			<div class = "one" id ="three1"></div>
+			<br/>
+
+			<div class = "two" id ="one2"></div>
+			<br/>
+			<div class = "two" id ="two2"></div>
+			<br/>
+			<div class = "two" id ="three2"></div>
+			<br/>
+			
+			<div class = "three" id ="one3"></div>
+			<br/>
+			<div class = "three" id ="two3"></div>
+			<br/>
+			<div class = "three" id ="three3"></div>
+			<br/>
+	<!-- 	</div> -->
 
 	<!-- links to javascript & query -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
