@@ -1,15 +1,10 @@
 var main = function() {
 
 
-    // $(document).keydown(function(key){
-    //   if(key.which === 37) {
-    //     $('#player').animate({left:"-=10px"},'fast');
-    //   }
-    // });
+$('#gameHolder').hide().fadeIn(12000);
+$('#howToHolder').delay(7000).fadeOut(700);
 
-$('#howToHolder').delay(10000).fadeOut(2000);
-
-$('#player').css("left",($(window).width() * 0.5));
+$('#player').css("left",($(window).width() * 0.465));
 $('#rightWall').css("left",($(window).width() - 5));
 $('#bottomWall').css("top",($(window).height() - 5));
 
@@ -155,14 +150,14 @@ window.setInterval(function() {
     collision($('#player'),$('#bottomWall'))
     ) { 
         $('body').css("background-color","#F8F8F8");
-          points ++;
+          points++;
         setTimeout(function(){
           $('body').css("background-color","white");  
         },50);
       } 
 
+  var totalPoints = Math.round((points / 5)) * 5;
 
-  totalPoints = Math.round((points / 5) * 5);
   if(totalPoints > 50){
     points = 50;
   } 
@@ -174,7 +169,7 @@ window.setInterval(function() {
 
   $('#points').text(totalPoints);
 
-}, 100);
+}, 50);
 
 
 
