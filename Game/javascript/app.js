@@ -34,27 +34,29 @@ var blocker = function(div,posStart,directionStart,currMover) {
     var directionNew = directionStart;
     var posNew = posStart;
     var mover = currMover;
+
     // var animSpeed =
+    $('#speedUp').click(function(){
+        mover = mover + 5;
+    });
+    $('#slowDown').click(function(){
+      if(mover > 5) {
+      mover = mover - 5;
+      }
+    });
+
+
     setInterval(function(){
 
       // this needs to go before the switch statement because otherwise the switch direction would just forever be left
+      // to designate the x-axis position on the page where this will be animated to go
       if(posNew >= ($(window).width() - 65)) {
         directionNew = "right";
       } else if(posNew <=0) {
          directionNew = "left";
       }      
-      // to designate the x-axis position on the page where this will be animated to go
 
-
-      // to try to speed up or slow down the divs
-      $('#speedUp').click(function(){
-            mover += 0.02;
-          });
-      $('#slowDown').click(function(){
-            if(mover > 1) {
-              mover -= 0.01;
-            }
-          });
+      // console.log(mover);
 
         switch(directionNew) {
           case "left":
@@ -67,23 +69,26 @@ var blocker = function(div,posStart,directionStart,currMover) {
             break;
         }
 
+      // to try to speed up or slow down the divs
+ 
+
+
       // to animate the blocker divs
       var posNewPx = posNew + "px";
       div.animate({left: posNewPx},35);
-
       }, 50);
 };
 
-new blocker($('#one1'),100,"left",10);
-new blocker($('#one3'),600,"left",10);
-new blocker($('#two3'),200,"left",10);
-new blocker($('#two1'),450,"left",10);
-new blocker($('#three3'),900,"left",10);
+new blocker($('#one1'),100,"left",15);
+new blocker($('#one3'),600,"left",15);
+new blocker($('#two3'),200,"left",15);
+new blocker($('#two1'),450,"left",15);
+new blocker($('#three3'),900,"left",15);
 
-new blocker($('#one2'),200,"right",10);
-new blocker($('#two2'),3500,"right",10);
-new blocker($('#three2'),700,"right",10);
-new blocker($('#three1'),750,"right",10);
+new blocker($('#one2'),200,"right",15);
+new blocker($('#two2'),3500,"right",15);
+new blocker($('#three2'),700,"right",15);
+new blocker($('#three1'),750,"right",15);
 
 
 
@@ -140,21 +145,24 @@ window.setInterval(function() {
             points --;
           setTimeout(function(){
             $('body').css("background-color","white");  
-          },50);
+          },5);
         } 
+  // why doesn't the below seem to represent the same thing as console logging it? it goes right back to meaning 50 again instead of meaning whatever the current point value is rounded to the nearest 5
+  // currPoints = Math.round((points / 5)) * 5;
 
   if (
     collision($('#player'),$('#leftWall')) ||
     // collision($('#player'),$('#topWall')) ||
     collision($('#player'),$('#rightWall')) ||
-    collision($('#player'),$('#bottomWall'))
-    ) { 
+    collision($('#player'),$('#bottomWall'))) { 
+      // while (points <= (currPoints + 5)) {
         $('body').css("background-color","#F8F8F8");
           points++;
         setTimeout(function(){
           $('body').css("background-color","white");  
-        },50);
-      } 
+        },100);
+      // } 
+  }
 
   var totalPoints = Math.round((points / 5)) * 5;
 
