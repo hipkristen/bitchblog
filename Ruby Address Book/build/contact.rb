@@ -2,7 +2,7 @@ require "./phone_number"
 require "./address"
 
 class Contact
-	attr_writer :first_name, :middle_name, :last_name
+	attr_accessor :first_name, :middle_name, :last_name
 	attr_reader :phone_numbers
   attr_reader :addresses
   
@@ -29,17 +29,17 @@ class Contact
     addresses.push(address)
   end
   
-	def first_name
-		@first_name
-	end
+	# def first_name
+	# 	@first_name
+	# end
 
-	def middle_name
-		@middle_name
-	end
+	# def middle_name
+	# 	@middle_name
+	# end
 	
-	def last_name
-		@last_name
-	end
+	# def last_name
+	# 	@last_name
+	# end
   
   def last_first
     last_first = last_name
@@ -94,15 +94,15 @@ class Contact
   
 end
 
-kristen = Contact.new
-kristen.first_name = "Kristen"
-kristen.last_name = "Malone"
-kristen.middle_name = "Marie"
-kristen.add_phone_number("home","123-456-7890")
-kristen.add_phone_number("work","456-456-7890")
-puts kristen.to_s('full_name')
-#puts kristen.inspect
-kristen.print_phone_numbers
-kristen.add_address("home","70 main","", "Geneseo","NY","14454")
-kristen.print_address
+# kristen = Contact.new
+# kristen.first_name = "Kristen"
+# kristen.last_name = "Malone"
+# kristen.middle_name = "Marie"
+# kristen.add_phone_number("home","123-456-7890")
+# kristen.add_phone_number("work","456-456-7890")
+# puts kristen.to_s('full_name')
+# #puts kristen.inspect
+# kristen.print_phone_numbers
+# kristen.add_address("home","70 main","", "Geneseo","NY","14454")
+# kristen.print_address
 

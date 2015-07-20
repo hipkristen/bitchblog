@@ -4,6 +4,5 @@ class PhoneNumber
   def to_s
     "#{kind}: #{number}"
   end
-  
-  
+   
 end
