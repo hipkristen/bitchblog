@@ -8,11 +8,12 @@ class Killer
     curr_count = @count.start_weap()
     last_count = @count.next_weap('XXX')
 
-    #need to revise stmt because when last weapon is "zero" it didn't seem to work
     while curr_count != last_count
     	next_count = curr_count.use()
     	curr_count = @count.next_weap(next_count)
     end
+
+    curr_count.use()
 
   end
 

@@ -44,7 +44,6 @@ end
 
 class Machete #< Weapon
   def use
-    puts "Alright you got the roach the roaches out of the bathroom."
     mliving = Living.new("Mike's Living Room")
     mliving.enter()
     puts "There are only #{$count} roaches left to kill and you take out your machete."
@@ -110,14 +109,10 @@ class Grenade #< Weapon
       @guess = gets.chomp.downcase()
     end
 
-    def success
+    if @guess == @compare
       puts "You got the roaches in #{mbath.room_name}!"
       $count = 10
       return 'ten'
-    end
-
-    if @guess == @compare
-      success
     else
       puts "Sorry not sorry. Wrong."
       return 'death'
