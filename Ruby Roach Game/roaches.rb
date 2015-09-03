@@ -18,7 +18,7 @@ class Pistol #< Weapon
     @code_ints = @code_str.split('').map { |num| num.to_i }
     @code_sum = @code_ints.inject { |sum, n| sum + n }
 
-    puts "code is #{@code}"
+    #puts "code is #{@code}"
     puts "code adds to #{@code_sum}"
 
     puts "You have 10 guesses to get the 3-digit code right before the roach gets the best of you and you die. Hint, each digit is between 1 - 9 and they add up to #{@code_sum}"
@@ -90,7 +90,7 @@ class Grenade #< Weapon
 
     @compare = ""
 
-    puts "num1 is #{@num1} num2 is #{@num2}."
+    #puts "num1 is #{@num1} num2 is #{@num2}."
 
     if @num2.to_i > @num1.to_i
       @compare = "higher"
